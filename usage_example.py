@@ -338,7 +338,8 @@ print(f"Applired transform: {transform.__class__.__name__}")
 
 from MVTec_Utils import final_visualization
 
-final_visualization(anomaly_estimation_test, f1_based_best_threshold, classes[0], time_interval=1)
+final_visualization(anomaly_estimation_test, f1_based_best_threshold, classes[0], transform,  time_interval=1)
+
 ##############################################################################
 
 
