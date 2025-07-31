@@ -24,6 +24,7 @@ class patchcore_feature_extractor(nn.Module):
         
         self.patch_size = patch_size 
         self.stride = stride 
+        self.device = device
         self.verbose = verbose 
         self.features = None
         
@@ -46,7 +47,7 @@ class patchcore_feature_extractor(nn.Module):
     def forward(self, x, verbose=False):
         self.verbose = verbose
         self.features = []
-        x = x.to(device)
+        x = x.to(self.device)
         with torch.no_grad():
             # feature extraction
             _ = self.model(x)  # forward 계산 시, register_forward_hood()에 의해서 self.features에 자동으로 저장되는 feature_map만 사용하면 되므로, 모델 전체의 출력값을 반환 받을 필요가 없음.
