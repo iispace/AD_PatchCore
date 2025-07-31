@@ -1,8 +1,10 @@
 # 사전학습 모델과 동일한 조건으로 transform을 생성하기 위한 class 구현
-from torchvision.transforms import InterpolationMode 
+import numpy as np 
+import torch 
+from torchvision.transforms import InterpolationMode, transforms 
 
 class RN50Transform:
-    def __init__(self, input_size=(224,224), resize_size=256, mean_=mean_imgnet, std_=std_imgnet):
+    def __init__(self, input_size=(224,224), resize_size=256, mean_=[0.485, 0.456, 0.406], std_=[0.229, 0.224, 0.225]):
         self.input_size = input_size
         self.resize_size = resize_size
         self.mean = mean_
